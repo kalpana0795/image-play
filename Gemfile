@@ -33,6 +33,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#validations for active storage
+gem 'active_storage_validations'
+# manipulate JavaScript objects from Ruby
+gem 'therubyracer'
+#The dynamic stylesheet language for the Rails asset pipeline
+gem 'less-rails'
+#twitter-bootstrap-rails project integrates Bootstrap CSS toolkit
+gem 'twitter-bootstrap-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
