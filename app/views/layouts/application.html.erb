@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="center-align">
+        <% flash.each do |type, message| %>
+         <div class="alert alert-<%= type %>">
+           <a href ="#" class="close" data-dismiss="alert">&times;</a>
+           <%= message %>
+         </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
+
+<style type="text/css">
+  .center-align {
+    margin: 50px auto;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,15 @@
+<%= form_tag '/playgames', remote: :true do %>
+  <%= hidden_field_tag 'playgame[count]', 20 %>
+  <%= hidden_field_tag 'playgame[image_url]', @images.first %>
+  <%= submit_tag 'PlayGame', class: 'btn btn-primary play-game-btn' %>
+  <%= link_to 'Add Image', new_image_path, class: 'btn btn-success', style: "display: inline-block;"  %>
+<% end %>
+
+<style type="text/css">
+	form {
+		display: flex;align-items: center;justify-content: center;margin-top: 30px;
+	}
+	.play-game-btn {
+		margin-right: 15px;
+	}
+</style> 

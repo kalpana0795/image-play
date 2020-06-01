@@ -1,0 +1,16 @@
+<table id='Table' class='table'>
+  <tr style='<%="display:none;" if @playgames.blank?%>'>
+    <th>
+      Count
+    </th>
+    <th>
+      Image
+    </th>
+  </tr>
+  <% @playgames.each do |playgame| %>
+    <tr>
+      <td><%= playgame.count %></td>
+      <td><%= image_tag(playgame.image_url, size: '100x100') unless playgame.image_url == 'undefined'%></td>
+    </tr>
+  <% end %>
+</table>

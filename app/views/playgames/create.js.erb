@@ -1,0 +1,7 @@
+var table = document.getElementById("Table");
+var row = table.insertRow(table.rows.length);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+cell1.innerHTML = "<%= @playgame.count %>";
+cell2.innerHTML = '<img src="<%= @playgame.image_url %>" width="80" height="80">';
+table.rows[0].style.display = '';
