@@ -1,0 +1,51 @@
+<% if @images.present? %>
+ <div class='row' style='margin-top: 115px'>
+   <div class='col-md-6'>
+      <h1 id='timerCounter'>10</h1>
+    </div>
+    <div id='image' class='col-md-6'>
+      <%= image_tag(@images.first, size: '100x100')%>
+    </div>
+    <div class='formparent'>
+      <%= render 'playgames/form' %>
+    </div>
+  </div>
+
+  <div class='row' style='margin-top: 50px'>
+    <%= render 'playgames/table' %>
+  </div>
+
+  <script type="text/javascript">
+    var images = <%=raw @images.as_json %>
+    const timer = (function () {
+      let timeCount = 9;
+      var imageCount = 1;
+      return function timer() {
+        document.getElementById('playgame_count').value = timeCount;
+        document.getElementById('playgame_image_url').value = images[imageCount];
+
+        document.getElementById('timerCounter').innerText = timeCount--;
+        document.getElementById('image').innerHTML = `<img src="${images[imageCount++]}" width="100" height="100">`;
+
+        if(timeCount === 0) {
+          timeCount =  10;
+          imageCount = 0;
+        }
+      }
+    })()
+
+    setInterval(timer, 1000)
+  </script>
+<% else %>
+  <p>
+    Add some images before proceed <%= link_to 'Add Image', new_image_path %>
+  </p>
+<% end %>
+
+<style type="text/css">
+  .formparent {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+</style>

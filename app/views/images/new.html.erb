@@ -1,0 +1,20 @@
+<% if @images.exists? %>
+  There are already some images, so you can <%= link_to 'Start Play', images_path %>
+<% end %>
+
+<h1>Add New Image</h1>
+<%= form_tag '/images', multipart: true do %>
+  <div class='row' style="    text-align: center; margin: 0 auto; width: 50%;">
+    <div class='form-group'>
+      <label for="images[files]">Upload Images:</label>
+      <%= file_field_tag 'images[files][]', multiple: true, required: true, class: 'form-control'
+      %>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='form-group'>
+      <%= submit_tag 'Upload Images', class: 'btn btn-primary', style: 'margin-right: 1px;' %>
+    </div>
+  </div>
+<% end %>
